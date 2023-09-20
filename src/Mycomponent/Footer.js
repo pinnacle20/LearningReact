@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Footer() {
     let footerStyle = {
-        position: "fixed",
+        position: "relative",
         width: "100%",
-        bottom: "0px",
+        marginTop: "30px"
     }
 
     return (
