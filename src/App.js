@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Mycomponent/Header';
 import Todos from './Mycomponent/Todos';
@@ -11,6 +10,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Redirect from './Mycomponent/Redirect';
 
 function App() {
   let initTodo
@@ -30,7 +30,7 @@ function App() {
   }
   const addTodo = (title, desc) => {
     let sno;
-    if (todos.length == 0) {
+    if (todos.length === 0) {
       sno = 0;
     }
     else {
@@ -54,19 +54,11 @@ function App() {
     <>
       <Router>
         <Header title="Ciao!" />
-
         <Routes>
-          <Route exact path='/' element={
-            <>
-              <AddTodo addTodo={addTodo} />
-              <Todos todos={todos} onDelete={onDelete} />
-            </>
-          } />
+          <Route exact path="/LearningReact" element={<Redirect addTodo={addTodo} todos={todos} onDelete={onDelete} />} />
+          <Route exact path='/' element={<Redirect addTodo={addTodo} todos={todos} onDelete={onDelete} />} />
           <Route exact path="/About" element={<About />} />
-          <Route exact path="/Home" element={<About />} />
-
-        </Routes>
-
+        </Routes >
         <Footer />
       </Router>
     </>
