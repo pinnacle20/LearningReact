@@ -4,7 +4,13 @@ import Header from './Mycomponent/Header';
 import Todos from './Mycomponent/Todos';
 import Footer from './Mycomponent/Footer';
 import AddTodo from './Mycomponent/AddTodo';
+import About from './Mycomponent/About';
 import { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
   let initTodo
@@ -46,10 +52,23 @@ function App() {
 
   return (
     <>
-      <Header title="Ciao!" />
-      <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} onDelete={onDelete} />
-      <Footer />
+      <Router>
+        <Header title="Ciao!" />
+
+        <Routes>
+          <Route exact path='/' element={
+            <>
+              <AddTodo addTodo={addTodo} />
+              <Todos todos={todos} onDelete={onDelete} />
+            </>
+          } />
+          <Route exact path="/About" element={<About />} />
+          <Route exact path="/Home" element={<About />} />
+
+        </Routes>
+
+        <Footer />
+      </Router>
     </>
   );
 }

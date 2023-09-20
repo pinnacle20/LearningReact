@@ -8,7 +8,11 @@ export default function AddTodo(props) {
         if (!title || !desc) {
             alert("Title or Desc cannot be blank ");
         }
-        props.addTodo(title, desc);
+        else {
+            props.addTodo(title, desc);
+            setTitle("");
+            setDesc("");
+        }
     }
 
     return (
