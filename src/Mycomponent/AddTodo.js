@@ -4,7 +4,8 @@ export default function AddTodo(props) {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
         if (!title || !desc) {
             alert("Title or Desc cannot be blank ");
         }
